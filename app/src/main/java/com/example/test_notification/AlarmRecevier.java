@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 
@@ -44,10 +45,14 @@ public class AlarmRecevier extends BroadcastReceiver {
         Intent intent2 = new Intent(context, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,101,intent2, PendingIntent.FLAG_IMMUTABLE);
 
-        //알림창 제목
-        builder.setContentTitle("알람");
+        // Notification 커스텀
+        RemoteViews normal_layout = new RemoteViews(context.getPackageName(), R.layout.notification_normal);
+        RemoteViews expand_layout = new RemoteViews(context.getPackageName(), R.layout.notification_expand);
+
         //알림창 아이콘
         builder.setSmallIcon(R.drawable.ic_launcher_background);
+        builder.setCustomContentView(normal_layout);
+        builder.setCustomBigContentView(expand_layout);
         //알림창 터치시 자동 삭제
         //builder.setAutoCancel(true);
 

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Test_Notification/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Test_Notification/app/src/main/res/layout/notification_expand.xml" value="0.22826086956521738" />
+        <entry key="..\:/Test_Notification/app/src/main/res/layout/notification_normal.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>

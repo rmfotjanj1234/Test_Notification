@@ -20,25 +20,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
-
     private AlarmManager alarmManager;
-    private GregorianCalendar mCalender;
-
-    private NotificationManager notificationManager;
-    NotificationCompat.Builder builder;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
         alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-
-        mCalender = new GregorianCalendar();
-
-        Log.v("HelloAlarmActivity", mCalender.getTime().toString());
 
         setContentView(R.layout.activity_main);
 
@@ -58,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Intent receiverIntent = new Intent(MainActivity.this, AlarmRecevier.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, receiverIntent, PendingIntent.FLAG_IMMUTABLE);
 
-        String from = "2022-02-08 11:41:50"; //임의로 날짜와 시간을 지정
+        // 현재 시간을 기준으로 알림 설정 -> 바로 설정 됨.
         long now = System.currentTimeMillis();
         Log.e("###", Long.toString(now));
         Date datetime = new Date(now);
