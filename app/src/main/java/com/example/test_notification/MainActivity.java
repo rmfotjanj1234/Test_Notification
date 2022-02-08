@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +23,7 @@ import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
     private AlarmManager alarmManager;
+    private Switch switch_noti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-
-        //접수일 알람 버튼
-        Button button = (Button) findViewById(R.id.btnNoti);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAlarm();
-            }
-        });
+        switch_noti = (Switch) findViewById(R.id.switch_noti);
+        switch_noti.setOnCheckedChangeListener(onCheckedChangeListener);
     }
+
+    CompoundButton.OnCheckedChangeListener onCheckedChangeListener  = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            switch (compoundButton.getId()){
+                case R.id.switch_noti:
+                    if(isChecked) setAlarm();
+                    else delAlarm();
+                    break;
+            }
+        }
+    };
 
     private void setAlarm() {
         //AlarmReceiver에 값 전달
@@ -55,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
         calendar.setTime(datetime);
 
         alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(),pendingIntent);
+    }
 
+    private void delAlarm(){
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
+        notificationManager.cancelAll();
     }
 }

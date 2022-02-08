@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Test_Notification/app/src/main/res/drawable-v24/ic_sms.xml" value="0.1745" />
         <entry key="..\:/Test_Notification/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Test_Notification/app/src/main/res/layout/activity_other.xml" value="0.22826086956521738" />
+        <entry key="..\:/Test_Notification/app/src/main/res/layout/activity_other1.xml" value="0.1125" />
+        <entry key="..\:/Test_Notification/app/src/main/res/layout/activity_other2.xml" value="0.22826086956521738" />
         <entry key="..\:/Test_Notification/app/src/main/res/layout/notification_expand.xml" value="0.22826086956521738" />
         <entry key="..\:/Test_Notification/app/src/main/res/layout/notification_normal.xml" value="0.22826086956521738" />
       </map>
